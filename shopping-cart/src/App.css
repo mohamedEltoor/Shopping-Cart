@@ -1,0 +1,318 @@
+/* ===================== Reset & Base ===================== */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================== Navbar ===================== */
+.navbar {
+  width: 25%; /* مش متأكد ليه معمولة 25% - لو عاوزها طول الصفحة خليها 100% */
+  height: 60px;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #a4193d;
+  font-size: x-large;
+  font-weight: 200;
+}
+
+/* تأثير hover على روابط النافبار */
+.navbar li a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.navbar li a:hover {
+  transform: scale(1.3);
+}
+
+/* ===================== Header ===================== */
+header {
+  background-color: #ffdfb9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopping-cart {
+  margin-right: 40px;
+}
+
+/* ===================== Cart Button ===================== */
+.btn-cart {
+  position: relative; /* عشان البادج يظهر جوه الزرار */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffdfb9;
+}
+
+.btn-cart:hover {
+  background-color: #a4193d;
+  transition-duration: 0.5s;
+}
+
+.btn-cart:hover svg {
+  fill: #ffdfb9;
+  transition-duration: 0.5s;
+}
+
+/* البادج بتاع العدد */
+.cart-badge {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  background-color: #a4193d;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================== Store Grid ===================== */
+.store {
+  width: 80%;
+  margin: auto;
+}
+
+.store-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* ===================== Store Item Card ===================== */
+.store-item-card {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  background-color: #ffdfb9;
+}
+
+.store-item-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.store-item-card:hover {
+  transform: scale(1.05);
+}
+.store-item-card:hover img {
+  transform: scale(1.1);
+}
+
+/* زرار الإضافة */
+.store-item-card .btn-add {
+  background-color: #a4193d;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ffdfb9;
+  width: 100%;
+  height: 2rem;
+}
+
+/* ===================== Update Quantity ===================== */
+.update {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.update button {
+  width: 20%;
+  background-color: #a4193d;
+  border-radius: 8px;
+  color: #ffdfb9;
+  height: 2rem;
+  font-weight: 600;
+}
+
+/* زرار الحذف */
+.btn-remove {
+  background-color: #a4193d;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ffdfb9;
+  height: 2rem;
+  width: 40%;
+}
+
+/* ===================== Offcanvas (Cart Sidebar) ===================== */
+.offcanvas {
+  position: fixed;
+  top: 0;
+  right: -400px; /* مخفي */
+  width: 350px;
+  height: 100%;
+  background-color: #ffdfb9;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transition: right 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.offcanvas.show {
+  right: 0; /* يظهر */
+}
+
+/* Header */
+.offcanvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid #a4193d;
+  color: #a4193d;
+}
+.offcanvas-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.offcanvas-header button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #a4193d;
+  cursor: pointer;
+}
+
+/* Body */
+.offcanvas-body {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Footer */
+.offcanvas-footer {
+  padding: 1rem;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ffdfb9;
+  color: #a4193d;
+}
+.offcanvas-footer .total-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+.offcanvas-footer .total-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #a4193d;
+}
+
+/* ===================== Cart Item ===================== */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+}
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+.item-info {
+  flex: 1;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+.item-info .name {
+  font-weight: bold;
+  color: #a4193d;
+}
+.item-info span {
+  font-size: 0.8rem;
+  color: #555;
+}
+.price, .total {
+  font-weight: bold;
+  margin: 0 0.5rem;
+  white-space: nowrap;
+}
+.remove-btn {
+  background: #a4193d;
+  border: none;
+  border-radius: 50%;
+  color: #ffdfb9;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================== Prices Info ===================== */
+.prices-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 50px;
+  margin-right: 20px;
+  font-size: large;
+}
+.prices-info p {
+  color: #a4193d;
+}
+/* زرار الحذف من السلة */
+.total button{
+  background: #a4193d;
+  border: none;
+  border-radius: 50%;
+  color: #ffdfb9;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  /* يخليه أقصى الشمال */
+  margin-right: auto;
+}
+.total button:hover {
+  background: #ffdfb9;
+  color: #a4193d;
+  border: 1px solid #a4193d;
+  transition: 0.3s;
+}
+@media(max-width:500px) {
+  .navbar ul a{
+    margin-right: 20px;
+  }
+}
